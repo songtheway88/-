@@ -750,32 +750,41 @@ button { font-family: inherit; }
    MOBILE TYPOGRAPHY & LAYOUT FIXES
    ============================================================ */
 
-/* 헤더: 375px 기기에서 로고+버튼 한 줄 유지 */
+/* 모바일 전용 <br>: 480px 이상에서 숨겨 데스크톱 레이아웃 영향 없음 */
+@media (min-width: 480px) {
+  .mobile-br { display: none; }
+}
+
+/* ── 480px 이하: 헤더 한 줄 유지 ── */
 @media (max-width: 480px) {
   .logo       { font-size: 12px; letter-spacing: 0.2px; }
   .logo span  { font-size: 11px; }
   .header-cta { font-size: 11px; padding: 0 12px; height: 36px; }
 }
 
-/* 섹션 헤드라인: 모바일 폰트 축소로 자연스러운 줄바꿈 */
+/* ── 479px 이하: 전체 타이포그래피 ── */
 @media (max-width: 479px) {
-  .section-headline { font-size: 20px; margin-bottom: 28px; }
+  /* 히어로 헤드라인: 21px → "강남 10분, 서울 아파트가 6억대?" 한 줄 유지 */
+  .hero-headline { font-size: 21px; }
+  /* 히어로 서브텍스트: 줄바꿈 간격 개선 */
+  .hero-sub      { font-size: 14px; line-height: 1.75; }
+  /* 섹션 헤드라인: 20px → 자연스러운 의미 단위 줄바꿈 */
+  .section-headline    { font-size: 20px; margin-bottom: 28px; }
+  /* 평면도: 음수 마진 제거 + 평형 숫자 축소 */
+  .floorplan-type-row  { margin-top: 0; margin-bottom: 28px; }
+  .fp-size             { font-size: 26px; }
+  /* FAQ 질문: 15px → 마지막 단어 orphan 방지 */
+  .faq-q               { font-size: 15px; padding: 16px 0; }
 }
 
-/* 평면도: 음수 마진 제거 + 평형 숫자 축소 */
-@media (max-width: 479px) {
-  .floorplan-type-row { margin-top: 0; margin-bottom: 28px; }
-  .fp-size            { font-size: 26px; }
-}
-
-/* 스케줄 "현재" 배지: 위 항목과 겹침 방지 */
-@media (max-width: 899px) {
-  .schedule-step.current { margin-top: 20px; }
-}
-
-/* 가전 카드: 좁은 화면에서 텍스트 줄바꿈 개선 */
+/* ── 599px 이하: 가전 카드 ── */
 @media (max-width: 599px) {
   .appliances-grid { gap: 10px; }
   .appliance-item  { font-size: 12px; padding: 14px 10px; gap: 8px; }
   .appliance-icon  { font-size: 20px; }
+}
+
+/* ── 899px 이하: 스케줄 "현재" 배지 겹침 방지 ── */
+@media (max-width: 899px) {
+  .schedule-step.current { margin-top: 20px; }
 }
