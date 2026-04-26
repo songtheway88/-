@@ -222,9 +222,35 @@ function initContactForm() {
 }
 
 /* ============================================================
+   BRAND NAME ADAPTER — 도메인 기준 자동 텍스트 치환
+   헤머튼 도메인 접속 시: '해머튼' → '헤머튼'
+   해머튼 도메인 접속 시: 기본값 유지
+   ============================================================ */
+function adaptBrandName() {
+  if (!location.hostname.includes('헤머튼')) return;
+
+  // body 내 모든 텍스트 노드 순회
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT,
+    null
+  );
+  let node;
+  while ((node = walker.nextNode())) {
+    if (node.nodeValue.includes('해머튼')) {
+      node.nodeValue = node.nodeValue.replace(/해머튼/g, '헤머튼');
+    }
+  }
+
+  // 브라우저 탭 제목도 변경
+  document.title = document.title.replace(/해머튼/g, '헤머튼');
+}
+
+/* ============================================================
    INIT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
+  adaptBrandName();
   initScrollAnimations();
   initCounters();
   initFaq();
