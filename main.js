@@ -1,9 +1,10 @@
 'use strict';
 
 /* ============================================================
-   CONFIG — n8n 웹훅 URL을 아래에 입력하세요
+   CONFIG — 텔레그램 봇 설정
    ============================================================ */
-const N8N_WEBHOOK_URL = ''; // 예: 'https://your-n8n.com/webhook/xxxxxxxx'
+const TELEGRAM_BOT_TOKEN = ''; // BotFather에서 발급받은 토큰
+const TELEGRAM_CHAT_ID   = ''; // 알림 받을 채팅 ID
 
 /* ============================================================
    STICKY HEADER + MOBILE CTA BAR
@@ -187,18 +188,24 @@ function initContactForm() {
         body:    new URLSearchParams(formData).toString(),
       });
 
-      // 2. n8n 웹훅 전송 (URL이 설정된 경우에만)
-      if (N8N_WEBHOOK_URL) {
-        const payload = Object.fromEntries(formData.entries());
-        delete payload['bot-field'];
-        await fetch(N8N_WEBHOOK_URL, {
+      // 2. 텔레그램 알림 (토큰과 채팅 ID가 모두 설정된 경우에만)
+      if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+        const d = Object.fromEntries(formData.entries());
+        const now = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+        const text = [
+          '📋 새 상담 신청!',
+          `이름: ${d.name || '-'}`,
+          `연락처: ${d.phone || '-'}`,
+          `관심 평형: ${d.size || '-'}`,
+          `거주지: ${d.region || '-'}`,
+          `문의: ${d.message || '-'}`,
+          `접수시간: ${now}`,
+        ].join('\n');
+
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
           method:  'POST',
           headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({
-            ...payload,
-            submitted_at: new Date().toISOString(),
-            source:       '남성역해머튼.kr',
-          }),
+          body:    JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text }),
         });
       }
 
