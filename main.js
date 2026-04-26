@@ -3,8 +3,8 @@
 /* ============================================================
    CONFIG — 텔레그램 봇 설정
    ============================================================ */
-const TELEGRAM_BOT_TOKEN = ''; // BotFather에서 발급받은 토큰
-const TELEGRAM_CHAT_ID   = ''; // 알림 받을 채팅 ID
+const TELEGRAM_BOT_TOKEN = '8650424203:AAG0mHaK-XKqbQhhWyEEw0TzlzR_uz321aQ';
+const TELEGRAM_CHAT_ID   = '123456789';
 
 /* ============================================================
    STICKY HEADER + MOBILE CTA BAR
@@ -199,7 +199,7 @@ function initContactForm() {
           `관심 평형: ${d.size || '-'}`,
           `거주지: ${d.region || '-'}`,
           `문의: ${d.message || '-'}`,
-          `접수시간: ${now}`,
+          `⏰ ${now}`,
         ].join('\n');
 
         await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
