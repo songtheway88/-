@@ -1,6 +1,11 @@
 'use strict';
 
 /* ============================================================
+   CONFIG — n8n 웹훅 URL을 아래에 입력하세요
+   ============================================================ */
+const N8N_WEBHOOK_URL = ''; // 예: 'https://your-n8n.com/webhook/xxxxxxxx'
+
+/* ============================================================
    STICKY HEADER + MOBILE CTA BAR
    ============================================================ */
 const header   = document.getElementById('siteHeader');
@@ -158,10 +163,63 @@ function initFaq() {
 }
 
 /* ============================================================
+   CONSULTATION FORM — Netlify Forms + n8n webhook
+   ============================================================ */
+function initContactForm() {
+  const form       = document.getElementById('contactForm');
+  const successBox = document.getElementById('formSuccess');
+  const submitBtn  = document.getElementById('formSubmitBtn');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    submitBtn.disabled    = true;
+    submitBtn.textContent = '전송 중...';
+
+    const formData = new FormData(form);
+
+    try {
+      // 1. Netlify Forms 제출
+      await fetch('/', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body:    new URLSearchParams(formData).toString(),
+      });
+
+      // 2. n8n 웹훅 전송 (URL이 설정된 경우에만)
+      if (N8N_WEBHOOK_URL) {
+        const payload = Object.fromEntries(formData.entries());
+        delete payload['bot-field'];
+        await fetch(N8N_WEBHOOK_URL, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({
+            ...payload,
+            submitted_at: new Date().toISOString(),
+            source:       '남성역해머튼.kr',
+          }),
+        });
+      }
+
+      // 성공: 폼 숨기고 완료 메시지 표시
+      form.hidden       = true;
+      successBox.hidden = false;
+
+    } catch (_err) {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = '상담 신청하기 →';
+      alert('전송 중 오류가 발생했습니다.\n잠시 후 다시 시도하거나 1844-0147로 전화 주세요.');
+    }
+  });
+}
+
+/* ============================================================
    INIT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initCounters();
   initFaq();
+  initContactForm();
 });

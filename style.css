@@ -683,7 +683,95 @@ button { font-family: inherit; }
 @media (min-width: 900px) { .step-arrow { display: block; } }
 
 /* ============================================================
-   11. FINAL CTA
+   11. CONSULTATION FORM
+   ============================================================ */
+.contact-section { background: var(--bg-light); }
+
+.contact-form-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 40px 32px;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.10);
+}
+@media (max-width: 479px) {
+  .contact-form-wrap { padding: 28px 20px; }
+}
+
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 560px) {
+  .form-row { grid-template-columns: 1fr 1fr; }
+}
+
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.form-required { color: var(--red); margin-left: 2px; }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text-dark);
+  background: var(--bg-light);
+  border: 1.5px solid #ddd;
+  border-radius: var(--radius-card);
+  padding: 12px 16px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: #bbb; }
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184,149,90,0.15);
+  background: var(--white);
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+.form-group select:invalid { color: #bbb; }
+
+.form-group textarea { resize: vertical; min-height: 108px; line-height: 1.6; }
+
+.form-submit { height: 54px; font-size: 16px; letter-spacing: 0.3px; }
+
+.form-honeypot { display: none; }
+
+.form-success {
+  text-align: center;
+  padding: 52px 16px;
+}
+.form-success-icon { font-size: 44px; margin-bottom: 16px; }
+.form-success h3   { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark); }
+.form-success p    { font-size: 15px; color: var(--text-muted); line-height: 1.8; }
+.form-success a    { color: var(--gold-dark); font-weight: 600; }
+
+/* ============================================================
+   12. FINAL CTA
    ============================================================ */
 .final-cta { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); }
 
