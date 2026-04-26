@@ -4,7 +4,7 @@
    CONFIG — 텔레그램 봇 설정
    ============================================================ */
 const TELEGRAM_BOT_TOKEN = '8650424203:AAG0mHaK-XKqbQhhWyEEw0TzlzR_uz321aQ';
-const TELEGRAM_CHAT_ID   = '123456789';
+const TELEGRAM_CHAT_ID   = '8753795118';
 
 /* ============================================================
    STICKY HEADER + MOBILE CTA BAR
