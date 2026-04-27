@@ -227,7 +227,10 @@ function initContactForm() {
    해머튼 도메인 접속 시: 기본값 유지
    ============================================================ */
 function adaptBrandName() {
-  if (!location.hostname.includes('헤머튼')) return;
+  // 브라우저가 퓨니코드(xn--...)로 반환할 수 있어 TLD로 판별
+  const host = location.hostname;
+  const isHematen = host.includes('헤머튼') || host.endsWith('.shop');
+  if (!isHematen) return;
 
   // body 내 모든 텍스트 노드 순회
   const walker = document.createTreeWalker(
