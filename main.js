@@ -17,10 +17,12 @@ function handleScroll() {
   const scrollY = window.scrollY;
 
   // Header: background 전환 (50px 이상)
-  if (scrollY > 50) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
+  if (header) {
+    if (scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
   }
 
   // 모바일 하단 CTA: 히어로 섹션 벗어난 후 등장
@@ -192,6 +194,7 @@ function initContactForm() {
       if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
         const d = Object.fromEntries(formData.entries());
         const now = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+        const source = d.source === 'apply-page' ? '블로그/외부링크' : '메인사이트';
         const text = [
           '📋 새 상담 신청!',
           `이름: ${d.name || '-'}`,
@@ -200,6 +203,7 @@ function initContactForm() {
           `거주지: ${d.region || '-'}`,
           `문의: ${d.message || '-'}`,
           `⏰ ${now}`,
+          `📌 유입: ${source}`,
         ].join('\n');
 
         await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
