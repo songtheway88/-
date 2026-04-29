@@ -4,7 +4,7 @@
    CONFIG — 텔레그램 봇 설정
    ============================================================ */
 const TELEGRAM_BOT_TOKEN = '8650424203:AAG0mHaK-XKqbQhhWyEEw0TzlzR_uz321aQ';
-const TELEGRAM_CHAT_ID   = '8753795118';
+const TELEGRAM_CHAT_IDS  = ['8753795118', '6150361494'];
 
 /* ============================================================
    STICKY HEADER + MOBILE CTA BAR
@@ -191,7 +191,7 @@ function initContactForm() {
       });
 
       // 2. 텔레그램 알림 (토큰과 채팅 ID가 모두 설정된 경우에만)
-      if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+      if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_IDS.length) {
         const d = Object.fromEntries(formData.entries());
         const now = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
         const source = d.source === 'apply-page' ? '블로그/외부링크' : '메인사이트';
@@ -206,11 +206,13 @@ function initContactForm() {
           `📌 유입: ${source}`,
         ].join('\n');
 
-        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-          method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text }),
-        });
+        await Promise.all(TELEGRAM_CHAT_IDS.map((chat_id) =>
+          fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ chat_id, text }),
+          })
+        ));
       }
 
       // 성공: 폼 숨기고 완료 메시지 표시
