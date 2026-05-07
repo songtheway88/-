@@ -219,6 +219,9 @@ function initContactForm() {
       form.hidden       = true;
       successBox.hidden = false;
 
+      // 메타 픽셀 Lead 이벤트
+      if (typeof fbq === 'function') fbq('track', 'Lead');
+
     } catch (_err) {
       submitBtn.disabled    = false;
       submitBtn.textContent = '상담 신청하기 →';
