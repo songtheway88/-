@@ -193,8 +193,8 @@ function initContactForm() {
       // 2. 텔레그램 알림 (토큰과 채팅 ID가 모두 설정된 경우에만)
       if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_IDS.length) {
         const d = Object.fromEntries(formData.entries());
-        const now = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
-        const source = d.source === 'apply-page' ? '블로그/외부링크' : '메인사이트';
+        const now    = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+        const page   = d.source === 'apply-page' ? '/apply' : '메인';
         const text = [
           '📋 새 상담 신청!',
           `이름: ${d.name || '-'}`,
@@ -203,7 +203,8 @@ function initContactForm() {
           `거주지: ${d.region || '-'}`,
           `문의: ${d.message || '-'}`,
           `⏰ ${now}`,
-          `📌 유입: ${source}`,
+          `🖥 페이지: ${page}`,
+          getUtmLine(),
         ].join('\n');
 
         await Promise.all(TELEGRAM_CHAT_IDS.map((chat_id) =>
@@ -228,6 +229,36 @@ function initContactForm() {
       alert('전송 중 오류가 발생했습니다.\n잠시 후 다시 시도하거나 1844-0147로 전화 주세요.');
     }
   });
+}
+
+/* ============================================================
+   UTM TRACKER — URL 파라미터 저장 및 조회
+   ============================================================ */
+function saveUtm() {
+  const params = new URLSearchParams(location.search);
+  const keys   = ['utm_source', 'utm_medium', 'utm_campaign'];
+  // UTM이 하나라도 있으면 localStorage 갱신
+  if (keys.some((k) => params.get(k))) {
+    keys.forEach((k) => {
+      const val = params.get(k);
+      if (val) localStorage.setItem(k, val);
+      else     localStorage.removeItem(k);
+    });
+  }
+}
+
+function getUtmLine() {
+  const src      = localStorage.getItem('utm_source')   || '';
+  const medium   = localStorage.getItem('utm_medium')   || '';
+  const campaign = localStorage.getItem('utm_campaign') || '';
+  if (!src && !medium && !campaign) return '📍 유입 출처: 직접유입';
+  const parts = [];
+  if (src)      parts.push(`utm_source: ${src}`);
+  if (medium)   parts.push(`utm_medium: ${medium}`);
+  if (campaign) parts.push(`utm_campaign: ${campaign}`);
+  // 사람이 읽기 좋은 레이블 (utm_source 기준)
+  const label = src || medium || campaign;
+  return `📍 유입 출처: ${label} (${parts.join(' / ')})`;
 }
 
 /* ============================================================
@@ -262,6 +293,7 @@ function adaptBrandName() {
    INIT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
+  saveUtm();
   adaptBrandName();
   initScrollAnimations();
   initCounters();
