@@ -182,6 +182,12 @@ function initContactForm() {
 
     const formData = new FormData(form);
 
+    // sessionStorage의 UTM 값을 폼 데이터에 포함
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach((key) => {
+      const val = sessionStorage.getItem(key);
+      if (val) formData.set(key, val);
+    });
+
     try {
       // 1. Netlify Forms 제출
       await fetch('/', {
@@ -223,6 +229,17 @@ function initContactForm() {
       // 메타 픽셀 Lead 이벤트
       if (typeof fbq === 'function') fbq('track', 'Lead');
 
+      // GA4 상담 신청 완료 이벤트
+      if (typeof gtag === 'function') {
+        gtag('event', 'form_submit', {
+          event_category: 'conversion',
+          event_label:    '상담신청완료',
+          utm_source:   sessionStorage.getItem('utm_source')   || 'direct',
+          utm_medium:   sessionStorage.getItem('utm_medium')   || 'none',
+          utm_campaign: sessionStorage.getItem('utm_campaign') || 'none',
+        });
+      }
+
     } catch (_err) {
       submitBtn.disabled    = false;
       submitBtn.textContent = '상담 신청하기 →';
@@ -235,14 +252,25 @@ function initContactForm() {
    UTM TRACKER — URL 파라미터 저장 및 조회
    ============================================================ */
 function saveUtm() {
-  const params = new URLSearchParams(location.search);
-  const keys   = ['utm_source', 'utm_medium', 'utm_campaign'];
-  // UTM이 하나라도 있으면 localStorage 갱신
-  if (keys.some((k) => params.get(k))) {
-    keys.forEach((k) => {
+  const params      = new URLSearchParams(location.search);
+  const localKeys   = ['utm_source', 'utm_medium', 'utm_campaign'];
+  const sessionKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+
+  // localStorage: 기존 3개 (Telegram 메시지용)
+  if (localKeys.some((k) => params.get(k))) {
+    localKeys.forEach((k) => {
       const val = params.get(k);
       if (val) localStorage.setItem(k, val);
       else     localStorage.removeItem(k);
+    });
+  }
+
+  // sessionStorage: 5개 전체 (GA4 이벤트 + 폼 데이터용)
+  if (sessionKeys.some((k) => params.get(k))) {
+    sessionKeys.forEach((k) => {
+      const val = params.get(k);
+      if (val) sessionStorage.setItem(k, val);
+      else     sessionStorage.removeItem(k);
     });
   }
 }
@@ -259,6 +287,44 @@ function getUtmLine() {
   // 사람이 읽기 좋은 레이블 (utm_source 기준)
   const label = src || medium || campaign;
   return `📍 유입 출처: ${label} (${parts.join(' / ')})`;
+}
+
+/* ============================================================
+   GA4 EVENT TRACKING — 전화/상담 버튼 클릭
+   ============================================================ */
+function initGa4Tracking() {
+  if (typeof gtag !== 'function') return;
+
+  // 전화연결 버튼 전체 (header, hero, CTA섹션, 모바일 하단바)
+  document.querySelectorAll('a[href^="tel:"]').forEach((el) => {
+    el.addEventListener('click', () => {
+      gtag('event', 'phone_click', {
+        event_category: 'engagement',
+        event_label:    '전화연결버튼',
+      });
+    });
+  });
+
+  // 상담신청 링크 (apply 페이지로 이동하는 버튼)
+  document.querySelectorAll('a[href*="apply"]').forEach((el) => {
+    el.addEventListener('click', () => {
+      gtag('event', 'apply_click', {
+        event_category: 'engagement',
+        event_label:    '상담신청버튼',
+      });
+    });
+  });
+
+  // 폼 제출 버튼 클릭 (apply.html + index.html 공통)
+  const submitBtn = document.getElementById('formSubmitBtn');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', () => {
+      gtag('event', 'apply_click', {
+        event_category: 'engagement',
+        event_label:    '상담신청버튼',
+      });
+    });
+  }
 }
 
 /* ============================================================
@@ -299,4 +365,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initFaq();
   initContactForm();
+  initGa4Tracking();
 });
