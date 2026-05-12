@@ -363,6 +363,25 @@ function initEbookForms() {
   });
 }
 
+function initSideBtns() {
+  const sideBtns = document.getElementById('sideBtns');
+  if (!sideBtns) return;
+
+  function toggle() {
+    sideBtns.classList.toggle('visible', window.scrollY > 300);
+  }
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+
+  const ebookSideBtn = document.getElementById('sideBtnEbook');
+  if (ebookSideBtn) {
+    ebookSideBtn.addEventListener('click', () => {
+      const ebookSection = document.querySelector('.ebook-section');
+      if (ebookSection) ebookSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+}
+
 function initEbookPopup() {
   const popup     = document.getElementById('ebookPopup');
   const toggleBtn = document.getElementById('ebookPopupToggle');
@@ -466,5 +485,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initEbookForms();
   initEbookPopup();
+  initSideBtns();
   initGa4Tracking();
 });

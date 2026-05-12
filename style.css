@@ -200,6 +200,9 @@ button { font-family: inherit; }
   /* placeholder (이미지 없을 때): */
   background-color: #0d1b2a;
 }
+@media (max-width: 767px) {
+  .hero-bg { clip-path: inset(0 0 14% 0); }
+}
 
 .hero-overlay {
   position: absolute;
@@ -223,6 +226,11 @@ button { font-family: inherit; }
   line-height: 1.3;
   letter-spacing: -0.5px;
   margin-bottom: 22px;
+}
+.hero-price {
+  font-style: normal;
+  color: var(--gold);
+  display: inline-block;
 }
 .hero-sub {
   font-size: 16px;
@@ -855,21 +863,17 @@ button { font-family: inherit; }
   align-items: center;
 }
 .ebook-cover {
-  background: linear-gradient(145deg, #c9a227, #f0d060);
-  border-radius: 10px;
-  padding: 22px 16px;
   text-align: center;
-  box-shadow: 6px 10px 28px rgba(0,0,0,0.45);
 }
-.ebook-cover-icon { font-size: 46px; display: block; margin-bottom: 10px; }
-.ebook-cover-subtitle {
-  font-size: 10px;
-  font-weight: 800;
-  color: #1a1a2e;
-  line-height: 1.5;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
+.ebook-cover-img {
+  width: 100%;
+  max-width: 148px;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 8px 12px 32px rgba(0,0,0,0.55);
 }
+.ebook-cover-mobile { display: none; }
 .ebook-info { color: #fff; }
 .ebook-badge {
   display: inline-block;
@@ -969,7 +973,57 @@ button { font-family: inherit; }
   .ebook-cover { display: none; }
   .ebook-form-box { grid-column: 1; }
   .ebook-info h2 { font-size: 18px; }
+  .ebook-cover-mobile {
+    display: block;
+    width: 260px;
+    border-radius: 8px;
+    box-shadow: 6px 10px 28px rgba(0,0,0,0.5);
+    margin: 14px auto 20px;
+  }
 }
+
+/* ============================================================
+   LEFT FLOATING SIDE BUTTONS
+   ============================================================ */
+.side-btns {
+  position: fixed;
+  right: 0;
+  bottom: 84px;
+  z-index: 850;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.side-btns.visible { opacity: 1; pointer-events: auto; }
+.side-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  padding: 10px 0;
+  border-radius: 12px 0 0 12px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  gap: 4px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.25);
+  transition: opacity 0.2s;
+  font-family: inherit;
+}
+.side-btn:active { opacity: 0.8; }
+.side-btn-icon  { font-size: 20px; line-height: 1; }
+.side-btn-label { font-size: 10px; font-weight: 700; color: #fff; line-height: 1; }
+.side-btn-call  { background: #2b9a3e; }
+.side-btn-visit { background: #e07b00; }
+.side-btn-ebook { background: #1a3a5c; }
+
+@media (min-width: 768px) { .side-btns { display: none; } }
+@media (max-width: 767px) { .ebook-popup-toggle { display: none; } }
+@media (min-width: 768px) { .ebook-popup { display: none !important; } }
 
 /* ============================================================
    EBOOK FLOATING POPUP
@@ -1124,7 +1178,7 @@ button { font-family: inherit; }
 .mobile-cta.visible { transform: translateY(0); }
 
 @media (max-width: 767px) {
-  .mobile-cta { display: flex; }
+  .mobile-cta { display: flex; transform: translateY(0); }
   body         { padding-bottom: 72px; }
 }
 
@@ -1156,12 +1210,10 @@ button { font-family: inherit; }
 
 /* ── 479px 이하: 전체 타이포그래피 ── */
 @media (max-width: 479px) {
-  /* 히어로 헤드라인: 21px → "강남 10분, 서울 아파트가 6억대?" 한 줄 유지 */
-  .hero-headline { font-size: 21px; }
-  /* 히어로 서브텍스트: 줄바꿈 간격 개선 */
+  .hero-headline { font-size: 28px; line-height: 1.25; }
+  .hero-price    { font-size: 38px; font-weight: 800; letter-spacing: -1px; }
   .hero-sub      { font-size: 14px; line-height: 1.75; }
-  /* 섹션 헤드라인: 20px → 자연스러운 의미 단위 줄바꿈 */
-  .section-headline    { font-size: 20px; margin-bottom: 28px; }
+  .section-headline    { font-size: 26px; margin-bottom: 28px; }
   /* 평면도: 음수 마진 제거 + 평형 숫자 축소 */
   .floorplan-type-row  { margin-top: 0; margin-bottom: 28px; }
   .fp-size             { font-size: 26px; }

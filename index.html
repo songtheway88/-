@@ -44,8 +44,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content container">
       <span class="badge">동작구 지주택 신화 · 하이팰리스 4차</span>
-      <h1 class="hero-headline">반포 강남 생활권<br>마지막 6억원대 아파트</h1>
-      <p class="hero-sub">7호선 남성역 도보 2분 · 지하4층~지상39층 6개동 934세대<br>반포 생활권 · 59㎡ 6억대~ / 84㎡ 8억대~</p>
+      <h1 class="hero-headline">반포 강남 생활권<br>마지막 <em class="hero-price">6억원대!</em></h1>
       <div class="hero-cta-wrap">
         <a href="tel:18440147" class="btn btn-gold btn-hero">📞 전화 상담 바로 연결</a>
         <a href="apply.html" class="btn btn-white-gold btn-hero">📝 모델하우스 방문신청</a>
@@ -408,11 +407,11 @@
     <div class="container">
       <div class="ebook-inner">
         <div class="ebook-cover fade-up">
-          <span class="ebook-cover-icon">📋</span>
-          <p class="ebook-cover-subtitle">Free<br>E-Book</p>
+          <img src="images/ebook-cover.png" alt="전자책 표지" class="ebook-cover-img" />
         </div>
         <div class="ebook-info fade-up">
           <span class="ebook-badge">무료 전자책</span>
+          <img src="images/ebook-cover.png" alt="전자책 표지" class="ebook-cover-mobile" />
           <h2>서울 입성 마지노선<br>남성역 해머튼<br>실전 체크리스트</h2>
           <p>청약 준비부터 계약까지, 지주택 투자 전 반드시 알아야 할 핵심 정보를 담았습니다.<br>이름과 연락처만 남기시면 바로 다운로드 가능합니다.</p>
         </div>
@@ -421,7 +420,6 @@
             <input type="hidden" name="form-name" value="ebook-download" />
             <input type="hidden" name="source" value="ebook-section" />
             <p style="display:none"><label>입력하지 마세요: <input name="bot-field" /></label></p>
-            <p>이름과 연락처를 남기시면<br>바로 다운로드 가능합니다</p>
             <input type="text" name="name" placeholder="이름" required autocomplete="name" />
             <input type="tel" name="phone" placeholder="연락처 (010-0000-0000)" required autocomplete="tel" />
             <button type="submit" class="ebook-submit-btn" id="ebookSubmitBtn">📥 무료로 받기 →</button>
@@ -537,10 +535,26 @@
     </div>
   </footer>
 
+  <!-- ===== LEFT FLOATING SIDE BUTTONS ===== -->
+  <div class="side-btns" id="sideBtns">
+    <a href="tel:18440147" class="side-btn side-btn-call">
+      <span class="side-btn-icon">📞</span>
+      <span class="side-btn-label">전화상담</span>
+    </a>
+    <a href="apply.html" class="side-btn side-btn-visit">
+      <span class="side-btn-icon">🏠</span>
+      <span class="side-btn-label">방문신청</span>
+    </a>
+    <button type="button" class="side-btn side-btn-ebook" id="sideBtnEbook">
+      <span class="side-btn-icon">📚</span>
+      <span class="side-btn-label">무료전자책</span>
+    </button>
+  </div>
+
   <!-- ===== EBOOK FLOATING POPUP ===== -->
   <div class="ebook-popup" id="ebookPopup" role="complementary" aria-label="무료 전자책">
     <button class="ebook-popup-toggle" id="ebookPopupToggle" aria-label="전자책 팝업 열기">
-      <span class="ebook-popup-tab">📚 무료 전자책</span>
+      <span class="ebook-popup-tab">무료 전자책 📚</span>
     </button>
     <div class="ebook-popup-body">
       <button class="ebook-popup-close" id="ebookPopupClose" aria-label="팝업 닫기">✕</button>
