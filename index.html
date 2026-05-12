@@ -403,6 +403,41 @@
     </div>
   </section>
 
+  <!-- ===== 10.5 EBOOK SECTION ===== -->
+  <section class="ebook-section">
+    <div class="container">
+      <div class="ebook-inner">
+        <div class="ebook-cover fade-up">
+          <span class="ebook-cover-icon">📋</span>
+          <p class="ebook-cover-subtitle">Free<br>E-Book</p>
+        </div>
+        <div class="ebook-info fade-up">
+          <span class="ebook-badge">무료 전자책</span>
+          <h2>서울 입성 마지노선<br>남성역 해머튼<br>실전 체크리스트</h2>
+          <p>청약 준비부터 계약까지, 지주택 투자 전 반드시 알아야 할 핵심 정보를 담았습니다.<br>이름과 연락처만 남기시면 바로 다운로드 가능합니다.</p>
+        </div>
+        <div class="ebook-form-box fade-up">
+          <form id="ebookForm" name="ebook-download" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="ebook-download" />
+            <input type="hidden" name="source" value="ebook-section" />
+            <p style="display:none"><label>입력하지 마세요: <input name="bot-field" /></label></p>
+            <p>이름과 연락처를 남기시면<br>바로 다운로드 가능합니다</p>
+            <input type="text" name="name" placeholder="이름" required autocomplete="name" />
+            <input type="tel" name="phone" placeholder="연락처 (010-0000-0000)" required autocomplete="tel" />
+            <button type="submit" class="ebook-submit-btn" id="ebookSubmitBtn">📥 무료로 받기 →</button>
+          </form>
+          <div id="ebookSuccess" hidden>
+            <p class="ebook-success-msg">✅ 확인되었습니다!<br>아래 버튼으로 다운로드하세요.</p>
+            <a href="https://docs.google.com/document/d/1cUJAPtefcYp9ebm1IM2gb79Wq2T7j-cv9QmNMyR0x_8/export?format=pdf"
+               class="ebook-download-btn" target="_blank" rel="noopener">
+              📥 전자책 다운로드
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== 11. CONSULTATION FORM ===== -->
   <section class="contact-section section" id="contactSection">
     <div class="container">
@@ -501,6 +536,40 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== EBOOK FLOATING POPUP ===== -->
+  <div class="ebook-popup" id="ebookPopup" role="complementary" aria-label="무료 전자책">
+    <button class="ebook-popup-toggle" id="ebookPopupToggle" aria-label="전자책 팝업 열기">
+      <span class="ebook-popup-tab">📚 무료 전자책</span>
+    </button>
+    <div class="ebook-popup-body">
+      <button class="ebook-popup-close" id="ebookPopupClose" aria-label="팝업 닫기">✕</button>
+      <div class="ebook-popup-header">
+        <span class="ebook-popup-icon">📋</span>
+        <div>
+          <p class="ebook-popup-label">무료 전자책</p>
+          <p class="ebook-popup-title">서울 입성 마지노선<br>실전 체크리스트</p>
+        </div>
+      </div>
+      <form id="ebookPopupForm" name="ebook-download" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="ebook-download" />
+        <input type="hidden" name="source" value="ebook-popup" />
+        <p style="display:none"><label>입력하지 마세요: <input name="bot-field" /></label></p>
+        <div class="ebook-popup-form">
+          <input type="text" name="name" placeholder="이름" required autocomplete="name" />
+          <input type="tel" name="phone" placeholder="010-0000-0000" required autocomplete="tel" />
+          <button type="submit" class="ebook-popup-submit" id="ebookPopupSubmitBtn">📥 무료로 받기</button>
+        </div>
+      </form>
+      <div class="ebook-popup-success" id="ebookPopupSuccess" hidden>
+        <p>✅ 확인! 아래 버튼으로 다운로드하세요.</p>
+        <a href="https://docs.google.com/document/d/1cUJAPtefcYp9ebm1IM2gb79Wq2T7j-cv9QmNMyR0x_8/export?format=pdf"
+           class="ebook-popup-dl-btn" target="_blank" rel="noopener">
+          📥 전자책 다운로드
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== MOBILE FIXED CTA BAR ===== -->
   <div class="mobile-cta" id="mobileCta" aria-hidden="true">

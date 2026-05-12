@@ -290,6 +290,105 @@ function getUtmLine() {
 }
 
 /* ============================================================
+   EBOOK FORMS — 전자책 신청 폼 처리
+   ============================================================ */
+const EBOOK_DOWNLOAD_URL = 'https://docs.google.com/document/d/1cUJAPtefcYp9ebm1IM2gb79Wq2T7j-cv9QmNMyR0x_8/export?format=pdf';
+
+async function submitEbookForm(form, submitBtn, successEl) {
+  submitBtn.disabled    = true;
+  submitBtn.textContent = '처리 중...';
+
+  const formData = new FormData(form);
+
+  try {
+    await fetch('/', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body:    new URLSearchParams(formData).toString(),
+    });
+
+    if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_IDS.length) {
+      const d    = Object.fromEntries(formData.entries());
+      const now  = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+      const text = [
+        '📚 전자책 신청!',
+        `이름: ${d.name  || '-'}`,
+        `연락처: ${d.phone || '-'}`,
+        `⏰ ${now}`,
+        `🖥 출처: ${d.source || '-'}`,
+        getUtmLine(),
+      ].join('\n');
+
+      await Promise.all(TELEGRAM_CHAT_IDS.map((chat_id) =>
+        fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ chat_id, text }),
+        })
+      ));
+    }
+
+    form.hidden       = true;
+    successEl.hidden  = false;
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'ebook_download', {
+        event_category: 'conversion',
+        event_label:    '전자책다운로드',
+      });
+    }
+    if (typeof fbq === 'function') fbq('track', 'Lead');
+
+  } catch (_err) {
+    submitBtn.disabled    = false;
+    submitBtn.textContent = '📥 무료로 받기';
+    alert('오류가 발생했습니다.\n잠시 후 다시 시도해 주세요.');
+  }
+}
+
+function initEbookForms() {
+  const pairs = [
+    { formId: 'ebookForm',      btnId: 'ebookSubmitBtn',      successId: 'ebookSuccess'      },
+    { formId: 'ebookPopupForm', btnId: 'ebookPopupSubmitBtn', successId: 'ebookPopupSuccess' },
+  ];
+  pairs.forEach(({ formId, btnId, successId }) => {
+    const form      = document.getElementById(formId);
+    const submitBtn = document.getElementById(btnId);
+    const successEl = document.getElementById(successId);
+    if (!form) return;
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      submitEbookForm(form, submitBtn, successEl);
+    });
+  });
+}
+
+function initEbookPopup() {
+  const popup     = document.getElementById('ebookPopup');
+  const toggleBtn = document.getElementById('ebookPopupToggle');
+  const closeBtn  = document.getElementById('ebookPopupClose');
+  if (!popup) return;
+
+  if (sessionStorage.getItem('ebook_dismissed')) {
+    popup.classList.add('dismissed');
+    return;
+  }
+
+  function showOnScroll() {
+    if (window.scrollY > 400) popup.classList.add('visible');
+  }
+  window.addEventListener('scroll', showOnScroll, { passive: true });
+  showOnScroll();
+
+  toggleBtn.addEventListener('click', () => popup.classList.toggle('open'));
+
+  closeBtn.addEventListener('click', () => {
+    popup.classList.add('dismissed');
+    sessionStorage.setItem('ebook_dismissed', '1');
+  });
+}
+
+/* ============================================================
    GA4 EVENT TRACKING — 전화/상담 버튼 클릭
    ============================================================ */
 function initGa4Tracking() {
@@ -365,5 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initFaq();
   initContactForm();
+  initEbookForms();
+  initEbookPopup();
   initGa4Tracking();
 });
