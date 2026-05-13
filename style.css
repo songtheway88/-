@@ -1022,7 +1022,10 @@ button { font-family: inherit; }
 .side-btn-ebook { background: #1a3a5c; }
 
 @media (min-width: 768px) { .side-btns { display: none; } }
-@media (max-width: 767px) { .ebook-popup-toggle { display: none; } }
+@media (max-width: 767px) {
+  .ebook-popup-toggle { display: none; }
+  .ebook-popup { pointer-events: none !important; }
+}
 @media (min-width: 768px) { .ebook-popup { display: none !important; } }
 
 /* ============================================================
