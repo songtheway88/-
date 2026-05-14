@@ -166,6 +166,73 @@ function initFaq() {
 }
 
 /* ============================================================
+   QUICK APPLY FORM (히어로 바로 아래)
+   ============================================================ */
+function initQuickApplyForm() {
+  const form       = document.getElementById('quickApplyForm');
+  const successBox = document.getElementById('quickApplySuccess');
+  const submitBtn  = document.getElementById('quickApplySubmitBtn');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled    = true;
+    submitBtn.textContent = '전송 중...';
+
+    const formData = new FormData(form);
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach((key) => {
+      const val = sessionStorage.getItem(key);
+      if (val) formData.set(key, val);
+    });
+
+    try {
+      await fetch('/', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body:    new URLSearchParams(formData).toString(),
+      });
+
+      if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_IDS.length) {
+        const d    = Object.fromEntries(formData.entries());
+        const now  = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+        const text = [
+          '📋 새 방문신청 (메인 상단)!',
+          `이름: ${d.name || '-'}`,
+          `연락처: ${d.phone || '-'}`,
+          `관심 평형: ${d.size || '-'}`,
+          `⏰ ${now}`,
+          getUtmLine(),
+        ].join('\n');
+        await Promise.all(TELEGRAM_CHAT_IDS.map((chat_id) =>
+          fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ chat_id, text }),
+          })
+        ));
+      }
+
+      form.hidden       = true;
+      successBox.hidden = false;
+
+      if (typeof fbq === 'function')  fbq('track', 'Lead');
+      if (typeof gtag === 'function') {
+        gtag('event', 'form_submit', {
+          event_category: 'conversion',
+          event_label:    '빠른방문신청',
+          utm_source:   sessionStorage.getItem('utm_source')   || 'direct',
+          utm_medium:   sessionStorage.getItem('utm_medium')   || 'none',
+          utm_campaign: sessionStorage.getItem('utm_campaign') || 'none',
+        });
+      }
+    } catch (err) {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = '방문신청 →';
+    }
+  });
+}
+
+/* ============================================================
    CONSULTATION FORM — Netlify Forms + n8n webhook
    ============================================================ */
 function initContactForm() {
@@ -482,6 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initCounters();
   initFaq();
+  initQuickApplyForm();
   initContactForm();
   initEbookForms();
   initEbookPopup();

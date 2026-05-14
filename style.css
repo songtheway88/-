@@ -270,6 +270,90 @@ button { font-family: inherit; }
 }
 
 /* ============================================================
+   1.5 QUICK APPLY SECTION
+   ============================================================ */
+.quick-apply-section {
+  background: #111827;
+  padding: 28px 0;
+}
+.quick-apply-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: 0.2px;
+}
+.quick-apply-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 160px auto;
+  gap: 10px;
+  align-items: center;
+}
+.quick-apply-form input,
+.quick-apply-form select {
+  height: 50px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+.quick-apply-form input:focus,
+.quick-apply-form select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.quick-apply-form input::placeholder { color: rgba(255,255,255,0.4); }
+.quick-apply-form select { color: rgba(255,255,255,0.7); }
+.quick-apply-form select option { background: #111827; color: #fff; }
+.quick-apply-btn {
+  height: 50px;
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0 24px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+.quick-apply-btn:hover { background: var(--gold-dark); }
+.quick-apply-btn:disabled { opacity: 0.7; cursor: default; }
+.quick-apply-success {
+  text-align: center;
+  padding: 16px 0 4px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.8;
+}
+.quick-apply-success a { color: var(--gold); }
+
+@media (max-width: 760px) {
+  .quick-apply-form {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .quick-apply-form input[name="name"]  { grid-column: 1; }
+  .quick-apply-form input[name="phone"] { grid-column: 2; }
+  .quick-apply-form select              { grid-column: 1; }
+  .quick-apply-btn                      { grid-column: 2; }
+}
+@media (max-width: 420px) {
+  .quick-apply-form { grid-template-columns: 1fr; }
+  .quick-apply-form input[name="name"],
+  .quick-apply-form input[name="phone"],
+  .quick-apply-form select,
+  .quick-apply-btn  { grid-column: 1; }
+}
+
+/* ============================================================
    2. KEY STATS BAR
    ============================================================ */
 .stats-bar { background: var(--gold); padding: 44px 0; }
