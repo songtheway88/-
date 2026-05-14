@@ -335,6 +335,31 @@ button { font-family: inherit; }
 }
 .quick-apply-success a { color: var(--gold); }
 
+/* 개인정보 동의 체크박스 (공용) */
+.privacy-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  cursor: pointer;
+  margin-top: 6px;
+}
+.privacy-consent input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+.privacy-consent a { text-decoration: underline; text-underline-offset: 2px; }
+.privacy-consent--dark       { color: rgba(255,255,255,0.6); }
+.privacy-consent--dark a     { color: rgba(255,255,255,0.85); }
+.privacy-consent--light      { color: #666; }
+.privacy-consent--light a    { color: var(--gold-dark); }
+.quick-apply-privacy         { grid-column: 1 / -1; margin-top: 2px; }
+
 @media (max-width: 760px) {
   .quick-apply-form {
     grid-template-columns: 1fr 1fr;

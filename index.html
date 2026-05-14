@@ -56,7 +56,7 @@
   <!-- ===== 1.5 QUICK APPLY SECTION ===== -->
   <section class="quick-apply-section" id="quickApply">
     <div class="container">
-      <p class="quick-apply-label">📝 모델하우스 방문신청 — 이름과 연락처만 남기시면 바로 안내해 드립니다</p>
+      <p class="quick-apply-label">💬 질문하기 — 궁금하신 점은 메모를 남겨주세요. 전문 상담사가 바로 안내해 드립니다</p>
       <form class="quick-apply-form" id="quickApplyForm" name="quick-apply" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="quick-apply" />
         <input type="hidden" name="source" value="quick-apply-section" />
@@ -70,6 +70,10 @@
           <option value="미정">미정</option>
         </select>
         <button type="submit" class="quick-apply-btn" id="quickApplySubmitBtn">방문신청 →</button>
+        <label class="privacy-consent privacy-consent--dark quick-apply-privacy">
+          <input type="checkbox" name="privacy_agree" required />
+          <span>(필수) <a href="/privacy" target="_blank" rel="noopener">개인정보 수집 및 이용</a>에 동의합니다</span>
+        </label>
       </form>
       <div class="quick-apply-success" id="quickApplySuccess" hidden>
         <p>✅ 신청이 완료되었습니다! 빠른 시일 내에 전문 상담사가 연락드리겠습니다.<br>급하신 경우 <a href="tel:18440147">1844-0147</a>로 전화 주세요.</p>
@@ -446,6 +450,10 @@
             <p style="display:none"><label>입력하지 마세요: <input name="bot-field" /></label></p>
             <input type="text" name="name" placeholder="이름" required autocomplete="name" />
             <input type="tel" name="phone" placeholder="연락처 (010-0000-0000)" required autocomplete="tel" />
+            <label class="privacy-consent privacy-consent--dark">
+              <input type="checkbox" name="privacy_agree" required />
+              <span>(필수) <a href="/privacy" target="_blank" rel="noopener">개인정보 수집 및 이용</a>에 동의합니다</span>
+            </label>
             <button type="submit" class="ebook-submit-btn" id="ebookSubmitBtn">📥 무료로 받기 →</button>
           </form>
           <div id="ebookSuccess" hidden>
@@ -514,6 +522,11 @@
             <label for="cf-message">문의사항</label>
             <textarea id="cf-message" name="message" rows="4" placeholder="궁금한 점을 남겨주세요."></textarea>
           </div>
+
+          <label class="privacy-consent privacy-consent--light">
+            <input type="checkbox" name="privacy_agree" required />
+            <span>(필수) <a href="/privacy" target="_blank" rel="noopener">개인정보 수집 및 이용</a>에 동의합니다</span>
+          </label>
 
           <button type="submit" class="btn btn-gold form-submit" id="formSubmitBtn">
             상담 신청하기 →
@@ -596,6 +609,10 @@
         <div class="ebook-popup-form">
           <input type="text" name="name" placeholder="이름" required autocomplete="name" />
           <input type="tel" name="phone" placeholder="010-0000-0000" required autocomplete="tel" />
+          <label class="privacy-consent privacy-consent--dark" style="margin: 4px 0 8px;">
+            <input type="checkbox" name="privacy_agree" required />
+            <span>(필수) <a href="/privacy" target="_blank" rel="noopener">개인정보 수집 및 이용</a>에 동의합니다</span>
+          </label>
           <button type="submit" class="ebook-popup-submit" id="ebookPopupSubmitBtn">📥 무료로 받기</button>
         </div>
       </form>
