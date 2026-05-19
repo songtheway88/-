@@ -1,9 +1,0 @@
-[     445ms] [WARNING] Swiper Loop Warning: The number of slides is not enough for loop mode, it will be disabled or not function properly. You need to add more slides (or make duplicates) or lower the values of slidesPerView and slidesPerGroup parameters @ https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js:12
-[     452ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://xn----wj6er9fore7wk8zkokidmddv8a2gh.kr/img/mo-main/main-3.png:0
-[     453ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://xn----wj6er9fore7wk8zkokidmddv8a2gh.kr/img/quick/quick_bottom_bubble-modal-img.png:0
-[     453ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://xn----wj6er9fore7wk8zkokidmddv8a2gh.kr/img/popup-img1.jpg:0
-[     453ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://xn----wj6er9fore7wk8zkokidmddv8a2gh.kr/img/popup-img2.jpg:0
-[     585ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://xn----wj6er9fore7wk8zkokidmddv8a2gh.kr/img/mo-main/main-4-2-video.webm:0
-[     586ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://xn----wj6er9fore7wk8zkokidmddv8a2gh.kr/img/quick/quick_bottom_bubble-modal-video.webm:0
-[     601ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://xn----wj6er9fore7wk8zkokidmddv8a2gh.kr/img/quick/quick_bottom_bubble-modal-video.webm:0
-[    1094ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://xn----wj6er9fore7wk8zkokidmddv8a2gh.kr/favicon.ico:0

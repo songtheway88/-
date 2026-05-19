@@ -1,7 +1,0 @@
-[      92ms] [WARNING] Unrecognized feature: 'web-share'. @ http://localhost:8080/index.html:90
-[     554ms] [WARNING] Unrecognized feature: 'web-share'. @ http://localhost:8080/index.html:90
-[    4408ms] [WARNING] Unrecognized feature: 'web-share'. @ http://localhost:8080/index.html:90
-[    5966ms] [WARNING] Unrecognized feature: 'web-share'. @ http://localhost:8080/index.html:90
-[   56383ms] [WARNING] Unrecognized feature: 'web-share'. @ http://localhost:8080/index.html:90
-[  123714ms] [WARNING] Unrecognized feature: 'web-share'. @ http://localhost:8080/index.html:90
-[  130270ms] [WARNING] Unrecognized feature: 'web-share'. @ http://localhost:8080/index.html:90
