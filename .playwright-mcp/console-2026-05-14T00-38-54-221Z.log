@@ -1,0 +1,4 @@
+[     347ms] [WARNING] Unrecognized feature: 'web-share'. @ http://localhost:8080/index.html:114
+[    1560ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8080/favicon.ico:0
+[ 1411208ms] [WARNING] Unrecognized feature: 'web-share'. @ http://localhost:8080/index.html:114
+[ 1421946ms] [WARNING] Unrecognized feature: 'web-share'. @ http://localhost:8080/index.html:114

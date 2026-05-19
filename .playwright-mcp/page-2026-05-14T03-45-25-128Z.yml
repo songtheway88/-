@@ -1,0 +1,24 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]: This XML file does not appear to have any style information associated with it. The document tree is shown below.
+  - generic [ref=e4]:
+    - generic [ref=e7]:
+      - text: <urlset
+      - generic [ref=e8]: xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      - generic [ref=e9]: xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      - generic [ref=e10]: xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+      - text: ">"
+    - generic [ref=e11]:
+      - generic [ref=e12]: <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+      - generic [ref=e13]:
+        - generic [ref=e16]: <url>
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - generic [ref=e19]: <loc>
+            - text: https://kurof.co.kr/
+            - generic [ref=e20]: </loc>
+          - generic [ref=e21]:
+            - generic [ref=e22]: <lastmod>
+            - text: 2025-12-13T07:37:59+00:00
+            - generic [ref=e23]: </lastmod>
+        - generic [ref=e25]: </url>
+    - generic [ref=e27]: </urlset>

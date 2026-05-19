@@ -1,0 +1,115 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "헤더로고-화이트" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "헤더로고-화이트" [ref=e6]
+      - link "모바일 헤더 텔버튼" [ref=e7] [cursor=pointer]:
+        - /url: tel:1666-2911
+        - img "모바일 헤더 텔버튼" [ref=e8]
+      - button "메뉴오픈" [ref=e9] [cursor=pointer]
+    - generic [ref=e13]:
+      - generic [ref=e15]:
+        - heading "사업안내" [level=4] [ref=e17]:
+          - link "사업안내" [ref=e18] [cursor=pointer]:
+            - /url: /?id=overview-overview
+        - heading "프리미엄" [level=4] [ref=e20]:
+          - link "프리미엄" [ref=e21] [cursor=pointer]:
+            - /url: /?id=premium-design
+        - heading "단지안내" [level=4] [ref=e23]:
+          - link "단지안내" [ref=e24] [cursor=pointer]:
+            - /url: /?id=layout-siteplan
+        - heading "세대안내" [level=4] [ref=e26]:
+          - link "세대안내" [ref=e27] [cursor=pointer]:
+            - /url: /?id=location-interior
+        - heading "E-모델하우스" [level=4] [ref=e29]:
+          - link "E-모델하우스" [ref=e30] [cursor=pointer]:
+            - /url: https://153media.kr/nshammerton/N59B.html
+        - heading "홍보센터" [level=4] [ref=e32]:
+          - link "홍보센터" [ref=e33] [cursor=pointer]:
+            - /url: /?id=promotion-video
+        - heading "방문예약" [level=4] [ref=e35]:
+          - link "방문예약" [ref=e36] [cursor=pointer]:
+            - /url: /?id=registration-registration
+      - list [ref=e37]:
+        - listitem [ref=e38]:
+          - link "1666-2911" [ref=e39] [cursor=pointer]:
+            - /url: tel:1666-2911
+        - listitem [ref=e40]:
+          - link "관심고객등록" [ref=e41] [cursor=pointer]:
+            - /url: /?id=registration-registration
+        - listitem [ref=e42] [cursor=pointer]:
+          - generic [ref=e43]: 메뉴닫기
+    - img "모바일 상단 퀵버튼" [ref=e46] [cursor=pointer]
+  - main [ref=e50]:
+    - iframe [ref=e58]:
+      - generic [active] [ref=f2e1]:
+        - img [ref=f2e4]
+        - generic [ref=f2e9]:
+          - generic [ref=f2e11]:
+            - paragraph [ref=f2e12]: 성함
+            - textbox "성함" [ref=f2e13]
+          - generic [ref=f2e15]:
+            - paragraph [ref=f2e16]: 연락처
+            - generic [ref=f2e17]:
+              - combobox [ref=f2e19]:
+                - option "-선택-" [selected]
+                - option "010"
+                - option "011"
+                - option "016"
+                - option "017"
+                - option "018"
+                - option "019"
+              - generic [ref=f2e20]: "-"
+              - textbox "연락처" [ref=f2e22]
+              - generic [ref=f2e23]: "-"
+              - textbox "연락처" [ref=f2e25]
+          - generic [ref=f2e28]:
+            - list:
+              - listitem [ref=f2e29]:
+                - checkbox "개인정보 수집·이용 동의" [ref=f2e30]
+                - generic [ref=f2e31] [cursor=pointer]: 개인정보 수집·이용 동의
+                - link "[보기]" [ref=f2e32] [cursor=pointer]:
+                  - /url: "#"
+          - link [ref=f2e34] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=f2e35]
+  - contentinfo [ref=e60]:
+    - generic:
+      - article [ref=e61] [cursor=pointer]:
+        - link "전화상담" [ref=e62]:
+          - /url: tel:1666-2911
+          - img "전화상담" [ref=e63]
+        - button "방문예약" [ref=e64]:
+          - img "방문예약" [ref=e65]
+      - img "말풍선"
+      - article [ref=e66]:
+        - list [ref=e68]:
+          - link "하단 롤링 배너 1" [ref=e69] [cursor=pointer]:
+            - /url: tel:1666-2911
+            - listitem [ref=e70]:
+              - img "하단 롤링 배너 1" [ref=e71]
+    - generic [ref=e72]:
+      - generic [ref=e73]:
+        - img "로고-컬러" [ref=e74]
+        - table [ref=e75]:
+          - rowgroup [ref=e76]:
+            - row "현장명 서울 남성역 헤머튼" [ref=e77]:
+              - cell "현장명" [ref=e78]
+              - cell "서울 남성역 헤머튼" [ref=e79]
+            - row "현장위치 서울 동작구 사당동277-1일원" [ref=e80]:
+              - cell "현장위치" [ref=e81]
+              - cell "서울 동작구 사당동277-1일원" [ref=e82]
+            - row "광고대행사 (주)광고인 / 분양의신 | ad-person@daum.net" [ref=e83]:
+              - cell "광고대행사" [ref=e84]
+              - cell "(주)광고인 / 분양의신 | ad-person@daum.net" [ref=e85]
+        - paragraph [ref=e86]:
+          - text: ※ 본 사이트의 CG, 일러스트, 이미지 등은 소비자의 이해를 돕기 위해 제작된 것으로 실제와 상이할 수 있습니다.
+          - text: ※ 본 사이트 및 이미지는 (주)광고인 제작이며, 동의 없이 무단 도용할 경우 법적인 처벌을 받으실 수 있습니다.
+        - paragraph [ref=e87]: Copyright ⓒ 서울 남성역 헤머튼 All Rights Reserved by
+      - generic [ref=e88]:
+        - link "상담문의 1666-2911" [ref=e90] [cursor=pointer]:
+          - /url: tel:1666-2911
+        - button "상단 스크롤" [ref=e91] [cursor=pointer]:
+          - img [ref=e92]
+  - generic: "* * *"

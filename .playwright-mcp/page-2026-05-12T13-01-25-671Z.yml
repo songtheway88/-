@@ -1,0 +1,406 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: HEMATEN 남성역 해머튼
+      - link "☎ 1844-0147 지금 상담" [ref=e5] [cursor=pointer]:
+        - /url: tel:18440147
+  - generic [ref=e6]:
+    - generic [ref=e9]:
+      - generic [ref=e10]: 동작구 지주택 신화 · 하이팰리스 4차
+      - heading "반포 강남 생활권 마지막 6억원대!" [level=1] [ref=e11]:
+        - text: 반포 강남 생활권
+        - text: 마지막
+        - emphasis [ref=e12]: 6억원대!
+      - paragraph [ref=e13]:
+        - text: 7호선 남성역 도보 2분 · 지하4층~지상39층 6개동 934세대
+        - text: 반포 생활권 · 59㎡ 6억대~ / 84㎡ 8억대~
+      - generic [ref=e14]:
+        - link "📞 전화 상담 바로 연결" [ref=e15] [cursor=pointer]:
+          - /url: tel:18440147
+        - link "📝 모델하우스 방문신청" [ref=e16] [cursor=pointer]:
+          - /url: apply.html
+    - generic "아래로 스크롤" [ref=e17] [cursor=pointer]: ↓
+  - generic [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e21]: 0분
+      - generic [ref=e22]: 7호선 남성역 도보
+    - generic [ref=e23]:
+      - generic [ref=e24]: 6억대~
+      - generic [ref=e25]: 59㎡ 공급가
+    - generic [ref=e26]:
+      - generic [ref=e27]: 0층
+      - generic [ref=e28]: 랜드마크 대단지
+    - generic [ref=e29]:
+      - generic [ref=e30]: 0연속
+      - generic [ref=e31]: 동작구 지주택 성공
+  - generic [ref=e32]:
+    - img "남성역 해머튼 단지 전체 조감도 — 지하4층~지상39층 6개동 934세대" [ref=e33]
+    - generic [ref=e34]: 지하4층~지상39층 6개동 934세대 · 서울특별시 동작구 사당동 277-1번지 일원
+  - generic [ref=e36]:
+    - iframe [ref=e38]:
+      - generic [active] [ref=f1e1]:
+        - generic "YouTube 동영상 플레이어" [ref=f1e3]
+        - generic [ref=f1e5]:
+          - generic:
+            - generic:
+              - button "동영상 재생" [ref=f1e10] [cursor=pointer]
+              - button "재생 컨트롤 숨기기" [ref=f1e12] [cursor=pointer]
+              - generic [ref=f1e14]:
+                - generic [ref=f1e19]:
+                  - generic [ref=f1e20]:
+                    - link "동작구 남성역 초역세권 신축아파트가 6억대에?! 투자가치 최고로 취급받는 이곳 이제 몇자리 안남았습니다 ㅠ" [ref=f1e21] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=dMpYRkNMhqs
+                    - link "분양천국" [ref=f1e22] [cursor=pointer]:
+                      - /url: /channel/UCW5kZUc5Gx__mSL3Ma-ywng
+                      - generic [ref=f1e23]: 분양천국
+                  - generic [ref=f1e24]:
+                    - button [ref=f1e25] [cursor=pointer]
+                    - generic [ref=f1e27]:
+                      - generic: 분양천국
+                      - generic: 구독자 5명
+                - generic [ref=f1e28]:
+                  - button "공유" [ref=f1e31] [cursor=pointer]:
+                    - generic [ref=f1e35]:
+                      - img
+                  - link "YouTube에서 보기" [ref=f1e42] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=dMpYRkNMhqs
+                    - generic [ref=f1e45]:
+                      - text: "다음에서 보기:"
+                      - img [ref=f1e47]:
+                        - generic [ref=f1e49]:
+                          - img
+    - heading "같은 서울, 다른 가격. 이 차이가 당신의 자산이 됩니다" [level=2] [ref=e39]:
+      - text: 같은 서울, 다른 가격.
+      - text: 이 차이가 당신의 자산이 됩니다
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]: 방배동 신축
+        - generic [ref=e43]: 84㎡
+        - generic [ref=e44]: 38~40억
+        - generic [ref=e45]: 인근 신축 시세
+      - generic [ref=e46]:
+        - generic [ref=e47]: 이수역 센트럴
+        - generic [ref=e48]: 84㎡
+        - generic [ref=e49]: 22억대
+        - generic [ref=e50]: 지주택 성공례
+      - generic [ref=e51]:
+        - generic [ref=e52]: ★ 지금 모집 중
+        - generic [ref=e53]: 남성역 해머튼
+        - generic [ref=e54]: 84㎡
+        - generic [ref=e55]: 8억대~
+        - generic [ref=e56]: 1차 모집가
+    - generic [ref=e57]:
+      - strong [ref=e58]: 주변 시세 대비 최대 12억 이상 저렴
+      - paragraph [ref=e59]: 59㎡는 주변 대비 약 10억, 84㎡는 약 12억 절감 — 동작구 지주택 구조가 만든 기적
+  - generic [ref=e61]:
+    - heading "서울 어디든, 10분이면 닿는 교통의 중심" [level=2] [ref=e62]
+    - generic [ref=e63]:
+      - img "남성역 해머튼 광역 입지 — 한강·남산·강남 접근성" [ref=e65]
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - generic [ref=e68]: 🚇
+          - generic [ref=e69]:
+            - heading "교통" [level=3] [ref=e70]
+            - list [ref=e71]:
+              - listitem [ref=e72]: · 7호선 남성역 도보 2분 (약 150m)
+              - listitem [ref=e73]: · 4호선 이수역 도보권 (약 750m)
+              - listitem [ref=e74]: · 서리풀 터널 → 강남 차량 10분대
+              - listitem [ref=e75]: · GTX-D 노선(예정) · 사당역 복합환승센터(예정)
+        - generic [ref=e76]:
+          - generic [ref=e77]: 🏫
+          - generic [ref=e78]:
+            - heading "학군" [level=3] [ref=e79]
+            - list [ref=e80]:
+              - listitem [ref=e81]: · 남림초·남성중·동작고 인접
+              - listitem [ref=e82]: · 중앙대·숭실대·총신대·서울대 근권
+              - listitem [ref=e83]: · 반포·강남 학원가 차량 10분
+        - generic [ref=e84]:
+          - generic [ref=e85]: 🛍️
+          - generic [ref=e86]:
+            - heading "생활" [level=3] [ref=e87]
+            - list [ref=e88]:
+              - listitem [ref=e89]: · 이수역 상권, 홈플러스, 신세계백화점
+              - listitem [ref=e90]: · 강남성모병원 의료 인프라
+        - generic [ref=e91]:
+          - generic [ref=e92]: 🌳
+          - generic [ref=e93]:
+            - heading "자연" [level=3] [ref=e94]
+            - list [ref=e95]:
+              - listitem [ref=e96]: · 까치산공원, 국립현충원, 반포 한강시민공원
+              - listitem [ref=e97]: · 현충근린공원 도보권
+  - generic [ref=e98]:
+    - heading "머무는 순간부터 휴식이 되는 공간, 특화설계로 완성하는 명품 프리미엄 라이프" [level=2] [ref=e100]:
+      - text: 머무는 순간부터 휴식이 되는 공간,
+      - text: 특화설계로 완성하는 명품 프리미엄 라이프
+    - generic [ref=e101]:
+      - img "PREMIUM 01 남향위주 배치 — 일조권과 통풍을 극대화한 남향위주 배치로 쾌적한 단지 조성 / PREMIUM 02 넓은 통경축 설계 — 단지 안팎을 이어주는 넓은 통경축 설계로 개방감 및 조망권 확보" [ref=e102]
+      - img "PREMIUM 03 선호도 높은 특화평면 — 선호도 높은 59㎡·84㎡ 중소형 평면으로 934세대 대단지 구성 / PREMIUM 04 맘스테이션&드롭존 — 차량의 이동과 도보를 분리하여 안전하게 통학할 수 있는 공간" [ref=e103]
+  - generic [ref=e104]:
+    - generic [ref=e105]:
+      - heading "라이프스타일에 맞는 평면, 선호도 높은 59㎡ · 84㎡ 특화 구성" [level=2] [ref=e106]:
+        - text: 라이프스타일에 맞는 평면,
+        - text: 선호도 높은 59㎡ · 84㎡ 특화 구성
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - generic [ref=e109]: 59㎡
+          - generic [ref=e110]: A · B 타입 / 총 478세대
+        - generic [ref=e111]:
+          - generic [ref=e112]: 84㎡
+          - generic [ref=e113]: A · B 타입 / 총 456세대
+    - img "남성역 해머튼 평면도 — 59A(338세대) · 59B(140세대) · 84A(386세대) · 84B(70세대)" [ref=e115]
+  - generic [ref=e117]:
+    - iframe [ref=e119]:
+      - generic [active] [ref=f2e1]:
+        - generic "YouTube 동영상 플레이어" [ref=f2e3]
+        - generic [ref=f2e5]:
+          - generic:
+            - generic:
+              - button "동영상 재생" [ref=f2e10] [cursor=pointer]
+              - button "재생 컨트롤 숨기기" [ref=f2e12] [cursor=pointer]
+              - generic [ref=f2e14]:
+                - generic [ref=f2e19]:
+                  - generic [ref=f2e20]:
+                    - link "남성역 헤머튼, 서울 초역세권 최고 입지 투자가치 최고가 6억원대?!" [ref=f2e21] [cursor=pointer]:
+                      - /url: https://www.youtube.com/watch?v=ugtbHxfSh2c
+                    - link "분양천국" [ref=f2e22] [cursor=pointer]:
+                      - /url: /channel/UCW5kZUc5Gx__mSL3Ma-ywng
+                      - generic [ref=f2e23]: 분양천국
+                  - generic [ref=f2e24]:
+                    - button [ref=f2e25] [cursor=pointer]
+                    - generic [ref=f2e27]:
+                      - generic: 분양천국
+                      - generic: 구독자 5명
+                - generic [ref=f2e28]:
+                  - button "공유" [ref=f2e31] [cursor=pointer]:
+                    - generic [ref=f2e35]:
+                      - img
+                  - link "YouTube에서 보기" [ref=f2e42] [cursor=pointer]:
+                    - /url: https://www.youtube.com/watch?v=ugtbHxfSh2c
+                    - generic [ref=f2e45]:
+                      - text: "다음에서 보기:"
+                      - img [ref=f2e47]:
+                        - generic [ref=f2e49]:
+                          - img
+    - heading "입주 첫날부터 완성된 집, 가전 걱정 없이 삶이 시작됩니다" [level=2] [ref=e120]:
+      - text: 입주 첫날부터 완성된 집,
+      - text: 가전 걱정 없이 삶이 시작됩니다
+    - paragraph [ref=e121]: 선착순 풀옵션 가전 무상 제공 — 지금 바로 확인하세요
+    - generic [ref=e122]:
+      - generic [ref=e123]:
+        - generic [ref=e124]: ❄️
+        - generic [ref=e125]: 시스템 에어컨 4대
+      - generic [ref=e126]:
+        - generic [ref=e127]: 🥬
+        - generic [ref=e128]: 비스포크 김치냉장고
+      - generic [ref=e129]:
+        - generic [ref=e130]: 🧊
+        - generic [ref=e131]: 비스포크 냉장고
+      - generic [ref=e132]:
+        - generic [ref=e133]: 🫧
+        - generic [ref=e134]: 세탁기 + 건조기 세트
+      - generic [ref=e135]:
+        - generic [ref=e136]: 🍽️
+        - generic [ref=e137]: 식기세척기
+      - generic [ref=e138]:
+        - generic [ref=e139]: 🔥
+        - generic [ref=e140]: 전기오븐 + 인덕션
+    - generic [ref=e141]:
+      - paragraph [ref=e142]: "* 계약금 4천만 원 / 중도금 무이자 / 발코니 확장 무상 제공 포함"
+      - paragraph [ref=e143]: "* 선착순 마감으로 조기 종료될 수 있습니다"
+  - generic [ref=e145]:
+    - heading "동작구 지주택이 특별한 이유, 숫자가 증명합니다" [level=2] [ref=e146]:
+      - text: 동작구 지주택이 특별한 이유,
+      - text: 숫자가 증명합니다
+    - generic [ref=e147]:
+      - generic [ref=e148]:
+        - generic [ref=e151]:
+          - generic [ref=e152]: 1차
+          - strong [ref=e153]: 동작 하이팰리스
+          - generic [ref=e154]: 완공 · 입주 완료
+        - generic [ref=e157]:
+          - generic [ref=e158]: 2차
+          - strong [ref=e159]: 상도역 하이팰리스
+          - generic [ref=e160]: 상도역 헤리언트 42 성공적 진행
+        - generic [ref=e163]:
+          - generic [ref=e164]: 3차
+          - strong [ref=e165]: 이수역 하이팰리스
+          - generic [ref=e166]: 이수역 해리드 조합설립인가 완료
+        - generic [ref=e167]:
+          - generic [ref=e168]: ★
+          - generic [ref=e169]:
+            - generic [ref=e170]: 4차
+            - strong [ref=e171]:
+              - text: 남성역 해머튼
+              - generic [ref=e172]: 현재
+            - generic [ref=e173]: 1차 조합원 모집 중
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - button "Q. 지역주택조합은 위험하지 않나요?" [ref=e176] [cursor=pointer]:
+            - text: Q. 지역주택조합은 위험하지 않나요?
+            - generic [ref=e177]: +
+          - region:
+            - paragraph [ref=e178]: 동작구는 '지주택의 성지'입니다. 하이팰리스 1·2·3차 성공 데이터가 증명하며, 지자체의 적극적 행정 협조로 사업 속도가 매우 빠릅니다.
+        - generic [ref=e179]:
+          - button "Q. 추가 분담금이 많이 나오지 않을까요?" [ref=e180] [cursor=pointer]:
+            - text: Q. 추가 분담금이 많이 나오지 않을까요?
+            - generic [ref=e181]: +
+          - region:
+            - paragraph [ref=e182]: 초기 모집가가 주변 시세의 40~50% 수준으로 설령 분담금이 발생해도 주변 시세 대비 압도적인 수익 구간이 확보됩니다.
+        - generic [ref=e183]:
+          - button "Q. 입주는 언제인가요?" [ref=e184] [cursor=pointer]:
+            - text: Q. 입주는 언제인가요?
+            - generic [ref=e185]: +
+          - region:
+            - paragraph [ref=e186]: 2026년 상반기 지구단위 접수 → 2028년 상반기 사업계획승인 예정. 최신 일정은 상담 시 안내드립니다.
+  - generic [ref=e187]:
+    - heading "'26년 상반기 지구단위 접수 → '28년 상반기 사업계획승인 예정" [level=2] [ref=e189]:
+      - text: "'26년 상반기 지구단위 접수 →"
+      - text: "'28년 상반기 사업계획승인 예정"
+    - generic [ref=e191]:
+      - generic [ref=e192]:
+        - generic [ref=e193]: ①
+        - generic [ref=e194]:
+          - generic [ref=e195]:
+            - text: 지구단위
+            - text: 사전검토
+          - generic [ref=e196]: "'23.11"
+      - generic [ref=e197]: →
+      - generic [ref=e198]:
+        - generic [ref=e199]: ②
+        - generic [ref=e200]:
+          - generic [ref=e201]:
+            - text: 조합모집
+            - text: 신고
+          - generic [ref=e202]: "'25.09 ✅"
+      - generic [ref=e203]: →
+      - generic [ref=e204]:
+        - generic [ref=e205]: 현재
+        - generic [ref=e206]: ③
+        - generic [ref=e207]:
+          - generic [ref=e208]:
+            - text: 지구단위
+            - text: 접수
+          - generic [ref=e209]: "'26.2월 예정"
+      - generic [ref=e210]: →
+      - generic [ref=e211]:
+        - generic [ref=e212]: ④
+        - generic [ref=e213]:
+          - generic [ref=e214]:
+            - text: 건축심의
+            - text: 접수
+          - generic [ref=e215]: "'26.12월 예정"
+      - generic [ref=e216]: →
+      - generic [ref=e217]:
+        - generic [ref=e218]: ⑤
+        - generic [ref=e219]:
+          - generic [ref=e220]: 조합설립
+          - generic [ref=e221]: "'27.상반기 예정"
+      - generic [ref=e222]: →
+      - generic [ref=e223]:
+        - generic [ref=e224]: ⑥
+        - generic [ref=e225]:
+          - generic [ref=e226]:
+            - text: 사업계획
+            - text: 승인
+          - generic [ref=e227]: "'28.상반기 예정"
+      - generic [ref=e228]: →
+      - generic [ref=e229]:
+        - generic [ref=e230]: ⑦
+        - generic [ref=e231]:
+          - generic [ref=e232]: 착공
+          - generic [ref=e233]: "'29.상반기 예정"
+  - generic [ref=e236]:
+    - generic [ref=e237]:
+      - generic [ref=e238]: 📋
+      - paragraph [ref=e239]:
+        - text: Free
+        - text: E-Book
+    - generic [ref=e240]:
+      - generic [ref=e241]: 무료 전자책
+      - heading "서울 입성 마지노선 남성역 해머튼 실전 체크리스트" [level=2] [ref=e242]:
+        - text: 서울 입성 마지노선
+        - text: 남성역 해머튼
+        - text: 실전 체크리스트
+      - paragraph [ref=e243]:
+        - text: 청약 준비부터 계약까지, 지주택 투자 전 반드시 알아야 할 핵심 정보를 담았습니다.
+        - text: 이름과 연락처만 남기시면 바로 다운로드 가능합니다.
+    - generic [ref=e245]:
+      - paragraph [ref=e246]:
+        - text: 이름과 연락처를 남기시면
+        - text: 바로 다운로드 가능합니다
+      - textbox "이름" [ref=e247]
+      - textbox "연락처 (010-0000-0000)" [ref=e248]
+      - button "📥 무료로 받기 →" [ref=e249] [cursor=pointer]
+  - generic [ref=e251]:
+    - heading "지금 바로 상담 신청하세요 전문 상담사가 맞춤 안내 드립니다" [level=2] [ref=e252]:
+      - text: 지금 바로 상담 신청하세요
+      - text: 전문 상담사가 맞춤 안내 드립니다
+    - paragraph [ref=e253]: 선착순 조합원 모집 중 · 1:1 무료 상담
+    - generic [ref=e255]:
+      - generic [ref=e256]:
+        - generic [ref=e257]:
+          - generic [ref=e258]: 이름 *
+          - textbox "이름 *" [ref=e259]:
+            - /placeholder: 홍길동
+        - generic [ref=e260]:
+          - generic [ref=e261]: 연락처 *
+          - textbox "연락처 *" [ref=e262]:
+            - /placeholder: 010-0000-0000
+      - generic [ref=e263]:
+        - generic [ref=e264]:
+          - generic [ref=e265]: 관심 평형 *
+          - combobox "관심 평형 *" [ref=e266] [cursor=pointer]:
+            - option "선택해 주세요" [selected]
+            - option "59㎡ (6억대~)"
+            - option "84㎡ (8억대~)"
+            - option "아직 미정"
+        - generic [ref=e267]:
+          - generic [ref=e268]: 현재 거주지
+          - textbox "현재 거주지" [ref=e269]:
+            - /placeholder: 서울시 강남구
+      - generic [ref=e270]:
+        - generic [ref=e271]: 홍보관(모델하우스) 방문희망 일시
+        - textbox "홍보관(모델하우스) 방문희망 일시" [ref=e272]:
+          - /placeholder: "예: 5월 15일 오후 2시 (또는 미정)"
+      - generic [ref=e273]:
+        - generic [ref=e274]: 문의사항
+        - textbox "문의사항" [ref=e275]:
+          - /placeholder: 궁금한 점을 남겨주세요.
+      - button "상담 신청하기 →" [ref=e276] [cursor=pointer]
+  - generic [ref=e278]:
+    - heading "1차 모집 선착순 마감 임박 지금 바로 상담 신청하세요" [level=2] [ref=e279]:
+      - text: 1차 모집 선착순 마감 임박
+      - text: 지금 바로 상담 신청하세요
+    - paragraph [ref=e280]:
+      - text: 총 934세대 대단지 · 59㎡ 6억대~ / 84㎡ 8억대~
+      - text: 계약금 4천만 원 · 중도금 무이자 · 풀옵션 가전 무상
+    - link "📞 1844-0147 전화 상담" [ref=e282] [cursor=pointer]:
+      - /url: tel:18440147
+    - paragraph [ref=e284]: "📍 모델하우스 위치 : 서울 서초구 서초동 1499-5"
+  - contentinfo [ref=e285]:
+    - generic [ref=e287]:
+      - generic [ref=e288]:
+        - paragraph [ref=e289]: Copyright © 2026 남성역 해머튼 All Rights Reserved.
+        - paragraph [ref=e290]: "바이럴러스 | 대표자: 송덕일 | 사업자등록번호: 302-08-96000 | 문의 010-2517-4468"
+        - paragraph [ref=e291]:
+          - link "개인정보처리방침" [ref=e292] [cursor=pointer]:
+            - /url: /privacy
+      - link "📞 1844-0147" [ref=e294] [cursor=pointer]:
+        - /url: tel:18440147
+  - complementary "무료 전자책":
+    - button "전자책 팝업 열기":
+      - generic: 📚 무료 전자책
+    - generic:
+      - button "팝업 닫기": ✕
+      - generic:
+        - generic: 📋
+        - generic:
+          - paragraph: 무료 전자책
+          - paragraph:
+            - text: 서울 입성 마지노선
+            - text: 실전 체크리스트
+      - generic:
+        - generic:
+          - textbox "이름"
+          - textbox "010-0000-0000"
+          - button "📥 무료로 받기"
