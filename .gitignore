@@ -1,2 +1,14 @@
 .DS_Store
 *.DS_Store
+
+# Playwright MCP logs
+.playwright-mcp/
+
+# Claude internal
+.claude/
+
+# Screenshot temp files
+check*.png
+mobile*.png
+our-*.png
+ref-*.png
