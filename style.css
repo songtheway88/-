@@ -1419,3 +1419,78 @@ button { font-family: inherit; }
   height: 100%;
   border: 0;
 }
+
+/* ===== 유입 경로 선택 ===== */
+.referral-group {
+  margin-top: 2px;
+}
+.referral-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8px;
+}
+.referral-group--dark .referral-label {
+  color: rgba(255,255,255,0.7);
+}
+.referral-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.referral-option {
+  cursor: pointer;
+}
+.referral-option input[type="radio"] {
+  display: none;
+}
+.referral-option span {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1.5px solid rgba(0,0,0,0.18);
+  border-radius: 20px;
+  font-size: 12px;
+  color: #666;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1.4;
+}
+.referral-group--dark .referral-option span {
+  border-color: rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.6);
+}
+.referral-option input[type="radio"]:checked + span {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+  font-weight: 600;
+}
+.referral-other-input {
+  display: none;
+  width: 100%;
+  padding: 8px 12px;
+  border: 1.5px solid rgba(0,0,0,0.18);
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #fff;
+  color: var(--text-dark);
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.referral-other-input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.referral-group--dark .referral-other-input {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.18);
+  color: #fff;
+}
+.referral-group--dark .referral-other-input::placeholder {
+  color: rgba(255,255,255,0.35);
+}
+.quick-apply-form .referral-group { grid-column: 1 / -1; }

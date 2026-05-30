@@ -124,6 +124,19 @@
           <option value="미정">미정</option>
         </select>
         <button type="submit" class="quick-apply-btn" id="quickApplySubmitBtn">방문신청 →</button>
+        <div class="referral-group referral-group--dark">
+          <p class="referral-label">어디서 알게 되셨나요?</p>
+          <div class="referral-options">
+            <label class="referral-option"><input type="radio" name="referral" value="네이버 검색" /><span>네이버 검색</span></label>
+            <label class="referral-option"><input type="radio" name="referral" value="네이버 블로그" /><span>네이버 블로그</span></label>
+            <label class="referral-option"><input type="radio" name="referral" value="네이버 배너광고" /><span>네이버 배너광고</span></label>
+            <label class="referral-option"><input type="radio" name="referral" value="유튜브" /><span>유튜브</span></label>
+            <label class="referral-option"><input type="radio" name="referral" value="인스타그램" /><span>인스타그램</span></label>
+            <label class="referral-option"><input type="radio" name="referral" value="페이스북" /><span>페이스북</span></label>
+            <label class="referral-option"><input type="radio" name="referral" value="기타" /><span>기타</span></label>
+          </div>
+          <input type="text" name="referral_other" class="referral-other-input" placeholder="어디서 보셨는지 직접 입력해주세요" />
+        </div>
         <label class="privacy-consent privacy-consent--dark quick-apply-privacy">
           <input type="checkbox" name="privacy_agree" required />
           <span>(필수) <a href="/privacy" target="_blank" rel="noopener">개인정보 수집 및 이용</a>에 동의합니다</span>
@@ -504,6 +517,19 @@
             <p style="display:none"><label>입력하지 마세요: <input name="bot-field" /></label></p>
             <input type="text" name="name" placeholder="이름" required autocomplete="name" />
             <input type="tel" name="phone" placeholder="연락처 (010-0000-0000)" required autocomplete="tel" />
+            <div class="referral-group referral-group--dark">
+              <p class="referral-label">어디서 알게 되셨나요?</p>
+              <div class="referral-options">
+                <label class="referral-option"><input type="radio" name="referral" value="네이버 검색" /><span>네이버 검색</span></label>
+                <label class="referral-option"><input type="radio" name="referral" value="네이버 블로그" /><span>네이버 블로그</span></label>
+                <label class="referral-option"><input type="radio" name="referral" value="네이버 배너광고" /><span>네이버 배너광고</span></label>
+                <label class="referral-option"><input type="radio" name="referral" value="유튜브" /><span>유튜브</span></label>
+                <label class="referral-option"><input type="radio" name="referral" value="인스타그램" /><span>인스타그램</span></label>
+                <label class="referral-option"><input type="radio" name="referral" value="페이스북" /><span>페이스북</span></label>
+                <label class="referral-option"><input type="radio" name="referral" value="기타" /><span>기타</span></label>
+              </div>
+              <input type="text" name="referral_other" class="referral-other-input" placeholder="어디서 보셨는지 직접 입력해주세요" />
+            </div>
             <label class="privacy-consent privacy-consent--dark">
               <input type="checkbox" name="privacy_agree" required />
               <span>(필수) <a href="/privacy" target="_blank" rel="noopener">개인정보 수집 및 이용</a>에 동의합니다</span>
@@ -575,6 +601,20 @@
           <div class="form-group">
             <label for="cf-message">문의사항</label>
             <textarea id="cf-message" name="message" rows="4" placeholder="궁금한 점을 남겨주세요."></textarea>
+          </div>
+
+          <div class="form-group referral-group">
+            <label class="referral-label">어디서 알게 되셨나요?</label>
+            <div class="referral-options">
+              <label class="referral-option"><input type="radio" name="referral" value="네이버 검색" /><span>네이버 검색</span></label>
+              <label class="referral-option"><input type="radio" name="referral" value="네이버 블로그" /><span>네이버 블로그</span></label>
+              <label class="referral-option"><input type="radio" name="referral" value="네이버 배너광고" /><span>네이버 배너광고</span></label>
+              <label class="referral-option"><input type="radio" name="referral" value="유튜브" /><span>유튜브</span></label>
+              <label class="referral-option"><input type="radio" name="referral" value="인스타그램" /><span>인스타그램</span></label>
+              <label class="referral-option"><input type="radio" name="referral" value="페이스북" /><span>페이스북</span></label>
+              <label class="referral-option"><input type="radio" name="referral" value="기타" /><span>기타</span></label>
+            </div>
+            <input type="text" name="referral_other" class="referral-other-input" placeholder="어디서 보셨는지 직접 입력해주세요" />
           </div>
 
           <label class="privacy-consent privacy-consent--light">
@@ -663,6 +703,19 @@
         <div class="ebook-popup-form">
           <input type="text" name="name" placeholder="이름" required autocomplete="name" />
           <input type="tel" name="phone" placeholder="010-0000-0000" required autocomplete="tel" />
+          <div class="referral-group referral-group--dark" style="margin: 8px 0 4px;">
+            <p class="referral-label">어디서 알게 되셨나요?</p>
+            <div class="referral-options">
+              <label class="referral-option"><input type="radio" name="referral" value="네이버 검색" /><span>네이버 검색</span></label>
+              <label class="referral-option"><input type="radio" name="referral" value="네이버 블로그" /><span>네이버 블로그</span></label>
+              <label class="referral-option"><input type="radio" name="referral" value="네이버 배너광고" /><span>네이버 배너광고</span></label>
+              <label class="referral-option"><input type="radio" name="referral" value="유튜브" /><span>유튜브</span></label>
+              <label class="referral-option"><input type="radio" name="referral" value="인스타그램" /><span>인스타그램</span></label>
+              <label class="referral-option"><input type="radio" name="referral" value="페이스북" /><span>페이스북</span></label>
+              <label class="referral-option"><input type="radio" name="referral" value="기타" /><span>기타</span></label>
+            </div>
+            <input type="text" name="referral_other" class="referral-other-input" placeholder="어디서 보셨는지 직접 입력해주세요" />
+          </div>
           <label class="privacy-consent privacy-consent--dark" style="margin: 4px 0 8px;">
             <input type="checkbox" name="privacy_agree" required />
             <span>(필수) <a href="/privacy" target="_blank" rel="noopener">개인정보 수집 및 이용</a>에 동의합니다</span>

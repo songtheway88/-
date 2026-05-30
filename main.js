@@ -200,9 +200,10 @@ function initQuickApplyForm() {
           `이름: ${d.name || '-'}`,
           `연락처: ${d.phone || '-'}`,
           `관심 평형: ${d.size || '-'}`,
+          getReferralLine(d),
           `⏰ ${now}`,
           getUtmLine(),
-        ].join('\n');
+        ].filter(Boolean).join('\n');
         await Promise.all(TELEGRAM_CHAT_IDS.map((chat_id) =>
           fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
             method:  'POST',
@@ -275,10 +276,11 @@ function initContactForm() {
           `관심 평형: ${d.size || '-'}`,
           `거주지: ${d.region || '-'}`,
           `문의: ${d.message || '-'}`,
+          getReferralLine(d),
           `⏰ ${now}`,
           `🖥 페이지: ${page}`,
           getUtmLine(),
-        ].join('\n');
+        ].filter(Boolean).join('\n');
 
         await Promise.all(TELEGRAM_CHAT_IDS.map((chat_id) =>
           fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
@@ -351,9 +353,37 @@ function getUtmLine() {
   if (src)      parts.push(`utm_source: ${src}`);
   if (medium)   parts.push(`utm_medium: ${medium}`);
   if (campaign) parts.push(`utm_campaign: ${campaign}`);
-  // 사람이 읽기 좋은 레이블 (utm_source 기준)
   const label = src || medium || campaign;
   return `📍 유입 출처: ${label} (${parts.join(' / ')})`;
+}
+
+function getReferralLine(d) {
+  if (!d.referral) return '';
+  const val = d.referral === '기타'
+    ? `기타 (${d.referral_other || '미입력'})`
+    : d.referral;
+  return `📣 유입경로: ${val}`;
+}
+
+function initReferralFields() {
+  document.querySelectorAll('form').forEach((form) => {
+    const radios     = form.querySelectorAll('input[name="referral"]');
+    const otherInput = form.querySelector('.referral-other-input');
+    if (!radios.length || !otherInput) return;
+
+    radios.forEach((radio) => {
+      radio.addEventListener('change', () => {
+        if (radio.value === '기타') {
+          otherInput.style.display = 'block';
+          otherInput.required      = true;
+        } else {
+          otherInput.style.display = 'none';
+          otherInput.required      = false;
+          otherInput.value         = '';
+        }
+      });
+    });
+  });
 }
 
 /* ============================================================
@@ -381,10 +411,11 @@ async function submitEbookForm(form, submitBtn, successEl) {
         '📚 전자책 신청!',
         `이름: ${d.name  || '-'}`,
         `연락처: ${d.phone || '-'}`,
+        getReferralLine(d),
         `⏰ ${now}`,
         `🖥 출처: ${d.source || '-'}`,
         getUtmLine(),
-      ].join('\n');
+      ].filter(Boolean).join('\n');
 
       await Promise.all(TELEGRAM_CHAT_IDS.map((chat_id) =>
         fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
@@ -549,6 +580,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initCounters();
   initFaq();
+  initReferralFields();
   initQuickApplyForm();
   initContactForm();
   initEbookForms();
