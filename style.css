@@ -1666,12 +1666,17 @@ input[type="date"]::after {
   margin-top: 8px;
 }
 .privacy-consent-label input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  border: 1.5px solid #bbb;
-  border-radius: 3px;
-  cursor: pointer;
-  margin: 0;
+  -webkit-appearance: checkbox !important;
+  appearance: checkbox !important;
+  width: 18px !important;
+  height: 18px !important;
+  border: 1.5px solid #bbb !important;
+  border-radius: 3px !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: var(--white) !important;
+  box-shadow: none !important;
 }
 
 /* 2-Button Mobile Fixed CTA Bar */
