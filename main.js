@@ -256,6 +256,25 @@ function initContactForm() {
       if (val) formData.set(key, val);
     });
 
+    // 3단 분할된 전화번호 조합하여 phone 파라미터 추가
+    const phone1 = formData.get('phone1');
+    const phone2 = formData.get('phone2');
+    const phone3 = formData.get('phone3');
+    if (phone1 && phone2 && phone3) {
+      formData.set('phone', `${phone1}-${phone2}-${phone3}`);
+      formData.delete('phone1');
+      formData.delete('phone2');
+      formData.delete('phone3');
+    }
+
+    // 방문예약일자 및 방문예약시간 조합하여 visit-time 파라미터 업데이트
+    const visitDate = formData.get('visit-date');
+    const visitTime = formData.get('visit-time');
+    if (visitDate && visitTime) {
+      formData.set('visit-time', `${visitDate} ${visitTime}`);
+      formData.delete('visit-date');
+    }
+
     try {
       // 1. Netlify Forms 제출
       await fetch('/', {
@@ -275,6 +294,7 @@ function initContactForm() {
           `연락처: ${d.phone || '-'}`,
           `관심 평형: ${d.size || '-'}`,
           `거주지: ${d.region || '-'}`,
+          `방문 예약: ${d['visit-time'] || '-'}`,
           `문의: ${d.message || '-'}`,
           getReferralLine(d),
           `⏰ ${now}`,
@@ -295,6 +315,16 @@ function initContactForm() {
       form.hidden       = true;
       successBox.hidden = false;
 
+      // 모바일 스티키 바 숨김
+      const mobileCtaSplit = document.getElementById('mobileCtaSplit');
+      if (mobileCtaSplit) {
+        mobileCtaSplit.style.display = 'none';
+      }
+      const mobileCta = document.getElementById('mobileCta');
+      if (mobileCta) {
+        mobileCta.style.display = 'none';
+      }
+
       // 메타 픽셀 Lead 이벤트
       if (typeof fbq === 'function') fbq('track', 'Lead');
 
@@ -311,7 +341,7 @@ function initContactForm() {
 
     } catch (_err) {
       submitBtn.disabled    = false;
-      submitBtn.textContent = '상담 신청하기 →';
+      submitBtn.textContent = '관심고객등록';
       alert('전송 중 오류가 발생했습니다.\n잠시 후 다시 시도하거나 1844-0147로 전화 주세요.');
     }
   });

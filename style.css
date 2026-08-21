@@ -1557,3 +1557,181 @@ button { font-family: inherit; }
   color: rgba(255,255,255,0.35);
 }
 .quick-apply-form .referral-group { grid-column: 1 / -1; }
+
+/* ============================================================
+   14. CUSTOM VISIT RESERVATION FORM STYLES (Split Phone, Date, Privacy, Split Mobile CTA)
+   ============================================================ */
+.form-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #000;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.phone-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.phone-part {
+  flex: 1;
+  text-align: center;
+  padding: 12px 8px !important;
+}
+.phone-part[readonly] {
+  background-color: #f5f5f5 !important;
+  color: #555;
+  cursor: not-allowed;
+}
+.phone-dash {
+  font-size: 16px;
+  color: #666;
+  user-select: none;
+}
+
+input[type="date"] {
+  position: relative;
+  min-height: 48px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+input[type="date"]::after {
+  content: '📅';
+  font-size: 14px;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.privacy-group {
+  margin-top: 10px;
+}
+.privacy-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+.privacy-box {
+  background: #fdfdfd;
+  border: 1.5px solid #ddd;
+  border-radius: var(--radius-card);
+  padding: 14px 16px;
+  height: 110px;
+  overflow-y: scroll;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 12px;
+}
+.privacy-box-title {
+  font-weight: 700;
+  color: #444;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+.privacy-box-title:first-child {
+  margin-top: 0;
+}
+.privacy-box p {
+  margin-bottom: 4px;
+}
+.privacy-consent-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.privacy-consent-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #bbb;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* 2-Button Mobile Fixed CTA Bar */
+.mobile-cta-split {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 990;
+  background: var(--white);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+  padding: 8px 12px 12px;
+  gap: 8px;
+  transform: translateY(100%);
+  transition: transform 0.35s ease;
+}
+@media (max-width: 767px) {
+  .mobile-cta-split {
+    display: flex;
+  }
+  body {
+    padding-bottom: 76px !important;
+  }
+}
+.mobile-cta-split.visible {
+  transform: translateY(0);
+}
+
+.mobile-cta-split-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  border: none;
+  border-radius: var(--radius-btn);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  font-family: inherit;
+}
+.mobile-cta-split-call {
+  background: #0f2a4a;
+  color: var(--white);
+  flex: 0 0 40%;
+}
+.mobile-cta-split-call:hover {
+  background: #091a30;
+}
+.mobile-cta-split-submit {
+  background: var(--gold);
+  color: var(--white);
+  flex: 0 0 60%;
+}
+.mobile-cta-split-submit:hover {
+  background: var(--gold-dark);
+}
+.mobile-cta-split-btn .btn-icon {
+  margin-right: 6px;
+  font-size: 14px;
+}
+
