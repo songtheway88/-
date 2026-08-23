@@ -12,3 +12,5 @@ check*.png
 mobile*.png
 our-*.png
 ref-*.png
+.vercel
+.env*

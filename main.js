@@ -1,10 +1,9 @@
 'use strict';
 
 /* ============================================================
-   CONFIG — 텔레그램 봇 설정
+   CONFIG — 폼 제출은 /api/submit(Vercel 서버리스 함수)를 통해 처리한다.
+   텔레그램 봇 토큰은 더 이상 클라이언트에 노출하지 않고 서버 환경변수로 관리한다.
    ============================================================ */
-const TELEGRAM_BOT_TOKEN = '8650424203:AAG0mHaK-XKqbQhhWyEEw0TzlzR_uz321aQ';
-const TELEGRAM_CHAT_IDS  = ['8753795118', '6150361494'];
 
 /* ============================================================
    STICKY HEADER + MOBILE CTA BAR
@@ -186,32 +185,12 @@ function initQuickApplyForm() {
     });
 
     try {
-      await fetch('/', {
+      const d = Object.fromEntries(formData.entries());
+      await fetch('/api/submit', {
         method:  'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body:    new URLSearchParams(formData).toString(),
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ form_type: 'quick', ...d }),
       });
-
-      if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_IDS.length) {
-        const d    = Object.fromEntries(formData.entries());
-        const now  = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
-        const text = [
-          '📋 새 방문신청 (메인 상단)!',
-          `이름: ${d.name || '-'}`,
-          `연락처: ${d.phone || '-'}`,
-          `관심 평형: ${d.size || '-'}`,
-          getReferralLine(d),
-          `⏰ ${now}`,
-          getUtmLine(),
-        ].filter(Boolean).join('\n');
-        await Promise.all(TELEGRAM_CHAT_IDS.map((chat_id) =>
-          fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-            method:  'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body:    JSON.stringify({ chat_id, text }),
-          })
-        ));
-      }
 
       form.hidden       = true;
       successBox.hidden = false;
@@ -234,7 +213,7 @@ function initQuickApplyForm() {
 }
 
 /* ============================================================
-   CONSULTATION FORM — Netlify Forms + n8n webhook
+   CONSULTATION FORM
    ============================================================ */
 function initContactForm() {
   const form       = document.getElementById('contactForm');
@@ -276,40 +255,12 @@ function initContactForm() {
     }
 
     try {
-      // 1. Netlify Forms 제출
-      await fetch('/', {
+      const d = Object.fromEntries(formData.entries());
+      await fetch('/api/submit', {
         method:  'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body:    new URLSearchParams(formData).toString(),
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ form_type: 'contact', ...d }),
       });
-
-      // 2. 텔레그램 알림 (토큰과 채팅 ID가 모두 설정된 경우에만)
-      if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_IDS.length) {
-        const d = Object.fromEntries(formData.entries());
-        const now    = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
-        const page   = d.source === 'apply-page' ? '/apply' : '메인';
-        const text = [
-          '📋 새 상담 신청!',
-          `이름: ${d.name || '-'}`,
-          `연락처: ${d.phone || '-'}`,
-          `관심 평형: ${d.size || '-'}`,
-          `거주지: ${d.region || '-'}`,
-          `방문 예약: ${d['visit-time'] || '-'}`,
-          `문의: ${d.message || '-'}`,
-          getReferralLine(d),
-          `⏰ ${now}`,
-          `🖥 페이지: ${page}`,
-          getUtmLine(),
-        ].filter(Boolean).join('\n');
-
-        await Promise.all(TELEGRAM_CHAT_IDS.map((chat_id) =>
-          fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-            method:  'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body:    JSON.stringify({ chat_id, text }),
-          })
-        ));
-      }
 
       // 성공: 폼 숨기고 완료 메시지 표시
       form.hidden       = true;
@@ -374,27 +325,6 @@ function saveUtm() {
   }
 }
 
-function getUtmLine() {
-  const src      = localStorage.getItem('utm_source')   || '';
-  const medium   = localStorage.getItem('utm_medium')   || '';
-  const campaign = localStorage.getItem('utm_campaign') || '';
-  if (!src && !medium && !campaign) return '📍 유입 출처: 직접유입';
-  const parts = [];
-  if (src)      parts.push(`utm_source: ${src}`);
-  if (medium)   parts.push(`utm_medium: ${medium}`);
-  if (campaign) parts.push(`utm_campaign: ${campaign}`);
-  const label = src || medium || campaign;
-  return `📍 유입 출처: ${label} (${parts.join(' / ')})`;
-}
-
-function getReferralLine(d) {
-  if (!d.referral) return '';
-  const val = d.referral === '기타'
-    ? `기타 (${d.referral_other || '미입력'})`
-    : d.referral;
-  return `📣 유입경로: ${val}`;
-}
-
 function initReferralFields() {
   document.querySelectorAll('form').forEach((form) => {
     const radios     = form.querySelectorAll('input[name="referral"]');
@@ -428,33 +358,12 @@ async function submitEbookForm(form, submitBtn, successEl) {
   const formData = new FormData(form);
 
   try {
-    await fetch('/', {
+    const d = Object.fromEntries(formData.entries());
+    await fetch('/api/submit', {
       method:  'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body:    new URLSearchParams(formData).toString(),
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ form_type: 'ebook', ...d }),
     });
-
-    if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_IDS.length) {
-      const d    = Object.fromEntries(formData.entries());
-      const now  = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
-      const text = [
-        '📚 전자책 신청!',
-        `이름: ${d.name  || '-'}`,
-        `연락처: ${d.phone || '-'}`,
-        getReferralLine(d),
-        `⏰ ${now}`,
-        `🖥 출처: ${d.source || '-'}`,
-        getUtmLine(),
-      ].filter(Boolean).join('\n');
-
-      await Promise.all(TELEGRAM_CHAT_IDS.map((chat_id) =>
-        fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-          method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({ chat_id, text }),
-        })
-      ));
-    }
 
     form.hidden       = true;
     successEl.hidden  = false;
